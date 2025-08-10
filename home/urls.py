@@ -1,12 +1,13 @@
 from django.urls import path
 from .views import (
-    sumka_list,
-    sumka_detail,
-    sumka_create,
-    sumka_update,
-    sumka_delete,
-    SumkaApiView,
-    SumkaView
+    # sumka_list,
+    # sumka_detail,
+    # sumka_create,
+    # sumka_update,
+    # sumka_delete,
+    # SumkaApiView,
+    # SumkaView,
+    SumkaListView
 )
 
 urlpatterns = [
@@ -15,7 +16,7 @@ urlpatterns = [
     # path('create/', sumka_create, name='sumka-create'),     
     # path('update/<int:pk>', sumka_update, name='sumka-update'),  
     # path('delete/<int:pk>', sumka_delete, name='sumka-delete'),  
-
+    path('', SumkaListView.as_view(), name='sumka-list'),
     # path('', SumkaApiView.as_view()),
     # path('sumkalar/<int:pk>/', SumkaApiView.as_view()),
     # path('', SumkaView.as_view()),

@@ -10,6 +10,19 @@ from django.shortcuts import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 
 
+
+class SumkaListView(APIView):
+    def get(self, request):
+        queryset = Sumka.objects.all()
+        paginator = PageNumberPagination()
+        paginator.page_size = 10  
+
+        result_page = paginator.paginate_queryset(queryset, request)
+
+        serializer = SumkaSerializer(result_page, many=True)
+        return paginator.get_paginated_response(serializer.data)
+
+
 # @api_view(['GET'])
 # def sumka_list(request):
 #     search = request.GET.get('search')  
